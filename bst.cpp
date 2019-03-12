@@ -57,47 +57,18 @@ Bst right_subtree(Bst root){
 }
 
 int traverse_pre_order(Bst bst, int *elements, int start){
-    if(bst == 0)return 0;
-    int count = 0;
-    elements[start] = bst->data;
-    count += traverse_pre_order(bst->left_subtree, elements, start+1);
-    count+= traverse_pre_order(bst->right_subtree, elements, start+count+1);
-    return count+1;
+    
 }
 
 int traverse_in_order(Bst bst, int *elements, int start){
-    if(bst == 0)return 0;
-    int count = 0;
-    count += traverse_in_order(bst->left_subtree, elements, start);
-    elements[start+count] = bst->data;
-    count+= traverse_in_order(bst->right_subtree, elements, start+count+1);
-    return count+1;
+    return 0;
 }
 
 int traverse_post_order(Bst bst, int *elements, int start){
-    if(bst == 0)return 0;
-    int count = 0;
-    count += traverse_post_order(bst->left_subtree, elements, start);
-    count += traverse_post_order(bst->right_subtree, elements, start+count);
-    elements[start+count] = bst->data;
-    return count+1;
+    return 0;
 }
 
 bool are_equal(Bst bst1, Bst bst2){
-  if(bst1 == bst2)return true;
-  if(bst1 != 0 && bst2 != 0){
-    int arr1[MAXL];
-    int length = traverse_pre_order(bst1, arr1, 0);
-    int arr2[MAXL];
-    int length2 = traverse_pre_order(bst2, arr2, 0);
-    if(length == length2){
-      bool x = true;
-      for (int i = 0; i < length; i++) {
-        if(arr1[i]!= arr2[i])x = false;
-      }
-      return x;
-    }
-  }
   return false;
 }
 
@@ -108,6 +79,5 @@ void most_left_longest_branch(Bst bst, Bst* branch){
 }
 
 int get_number_of_subtrees(Bst bst){
-    if(bst == 0)return -1;
-return get_number_of_subtrees(bst->left_subtree) +1+ get_number_of_subtrees(bst->right_subtree)+1;
+  return 0;
 }
